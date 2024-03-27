@@ -42,4 +42,5 @@ const Title = styled.h1`
 
 const Description = styled.p`
   max-width: 256px;
+  margin-bottom: 24px;
 `;
