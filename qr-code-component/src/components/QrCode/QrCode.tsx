@@ -17,7 +17,7 @@ export function QrCode() {
 }
 
 const Wrapper = styled.div`
-  padding: 16px;
+  padding: 1rem;
   text-align: center;
   max-width: 320px;
   display: flex;
@@ -30,17 +30,17 @@ const QrCodeImage = styled.img`
   border-radius: calc(var(--border-radius) / 2);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 `;
 
 const Title = styled.h1`
   color: var(--color-title);
   font-size: 22px;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   font-weight: 700;
 `;
 
 const Description = styled.p`
   max-width: 256px;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 `;
