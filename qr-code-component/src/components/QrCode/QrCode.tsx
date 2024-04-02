@@ -38,9 +38,11 @@ const Title = styled.h1`
   font-size: 22px;
   margin-bottom: 1rem;
   font-weight: 700;
+  line-height: 27.7px;
 `;
 
 const Description = styled.p`
   max-width: 256px;
   margin-bottom: 1.5rem;
+  line-height: 18.9px;
 `;
