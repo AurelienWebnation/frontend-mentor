@@ -23,7 +23,7 @@ const Wrapper = styled.div<Props>`
   ${({ level }) =>
     level == 5 &&
     `
-      font-family: "BarlowCondensed";
+      font-family: "BarlowCondensed", sans-serif;
       color: var(--color-text);
       letter-spacing: 4.725px;
     `}};
