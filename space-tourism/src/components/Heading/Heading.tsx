@@ -8,7 +8,7 @@ type Props = PropsWithChildren & {
 
 export function Heading({ level, children, as = null, ...delegated }: Props) {
   return (
-    <Wrapper level={level} {...delegated} as={as || `h${level}`}>
+    <Wrapper level={level} as={as || `h${level}`} {...delegated}>
       {children}
     </Wrapper>
   );
