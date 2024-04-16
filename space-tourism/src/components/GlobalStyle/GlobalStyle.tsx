@@ -28,7 +28,6 @@ export const GlobalStyle = createGlobalStyle`
 
   blockquote:before, blockquote:after,
   q:before, q:after {
-    content: '';
     content: none;
   }
   
@@ -86,6 +85,14 @@ export const GlobalStyle = createGlobalStyle`
     font-display: swap;
     src: url("/fonts/BarlowCondensed-Bold.ttf") format('trueType');
   }
+
+  @font-face {
+    font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/fonts/Barlow-Regular.ttf") format('trueType');
+  }
   
   // Animations
   @keyframes slideInFromRight {
@@ -102,17 +109,27 @@ export const GlobalStyle = createGlobalStyle`
     --color-white: hsl(0, 0%, 100%);
 
     // Font-size
-    --font-size-heading-1: ${150 / 16}rem;
+    --font-size-heading-1: ${80 / 16}rem;
     --font-size-heading-2: ${100 / 16}rem;
     --font-size-heading-3: ${54 / 16}rem;
-    --font-size-heading-4: ${32 / 16}rem;
-    --font-size-heading-5: ${28 / 16}rem;
+    --font-size-heading-4: ${20 / 16}rem;
+    --font-size-heading-5: ${16 / 16}rem;
 
     --font-size-subheading-1: ${28 / 16}rem;
     --font-size-subheading-2: ${14 / 16}rem;
 
     --font-size-nav: ${16 / 16}rem;
     --font-size-body: ${15 / 16}rem;
+    
+    @media (${QUERIES.tabletAndUp}) {
+      --font-size-heading-1: ${150 / 16}rem;
+      --font-size-heading-4: ${32 / 16}rem;
+      --font-size-heading-5: ${20 / 16}rem;
+    }
+
+    @media (${QUERIES.laptopAndUp}) {
+      --font-size-heading-5: ${28 / 16}rem;
+    }
     
     // Spacing
     --spacing-1: ${8 / 16}rem;
@@ -124,9 +141,7 @@ export const GlobalStyle = createGlobalStyle`
     --spacing-7: ${48 / 16}rem;
     --spacing-8: ${64 / 16}rem;
     
-    @media (${QUERIES.tabletOnly}) {
-      --font-size-nav: ${14 / 16}rem;
-    }
+    
   }
 
   html, body, #root {
@@ -137,7 +152,19 @@ export const GlobalStyle = createGlobalStyle`
     background-color: var(--color-black);
     color: var(--color-text);
     font-size: var(--font-size-body);
-    font-family: "Bellefair", sans-serif;
+    font-family: "Barlow", sans-serif;
+  }
+  
+  p {
+    line-height: 25px;
+    
+    @media (${QUERIES.tabletAndUp}) {
+      line-height: 28px;
+    }
+    
+    @media (${QUERIES.laptopAndUp}) {
+      line-height: 32px;
+    }
   }
   
   button {
