@@ -53,7 +53,7 @@ const Wrapper = styled.header`
   }
 
   @media ${QUERIES.laptopAndUp} {
-    margin-top: var(--spacing-6);
+    padding-top: var(--spacing-6);
     padding-left: 55px;
   }
 `;

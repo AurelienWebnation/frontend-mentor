@@ -6,42 +6,52 @@ export function Homepage() {
   return (
     <Wrapper>
       <Background />
-      <Heading level={5} as="p">
-        So, you want to travel to
-      </Heading>
-      <Heading level={1}>space</Heading>
-      <Description>
-        Let’s face it; if you want to go to space, you might as well genuinely
-        go to outer space and not hover kind of on the edge of it. Well sit
-        back, and relax because we’ll give you a truly out of this world
-        experience!
-      </Description>
+      <Content>
+        <Heading level={5} as="p">
+          So, you want to travel to
+        </Heading>
+        <Heading level={1}>space</Heading>
+        <Description>
+          Let’s face it; if you want to go to space, you might as well genuinely
+          go to outer space and not hover kind of on the edge of it. Well sit
+          back, and relax because we’ll give you a truly out of this world
+          experience!
+        </Description>
+      </Content>
       <RoundedButton>Explore</RoundedButton>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.main`
-  margin-top: var(--spacing-7);
+  padding-top: var(--spacing-7);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-3);
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
-
-  @media ${QUERIES.tabletAndUp} {
-    margin-top: 106px;
-    gap: var(--spacing-4);
-  }
-`;
-
-const Description = styled.p`
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 
   @media ${QUERIES.tabletAndUp} {
-    max-width: 444px;
+    padding-top: 106px;
+    gap: var(--spacing-4);
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    flex-direction: row;
+    text-align: revert;
+    justify-content: space-between;
+    padding-top: 251px;
+    max-width: 1110px;
+  }
+`;
+
+const Content = styled.article`
+  display: grid;
+  gap: 24px;
 `;
 
 const Background = styled.div`
@@ -66,6 +76,12 @@ const Background = styled.div`
   }
 `;
 
+const Description = styled.p`
+  @media ${QUERIES.tabletAndUp} {
+    max-width: 444px;
+  }
+`;
+
 const RoundedButton = styled.a`
   width: 150px;
   height: 150px;
@@ -86,5 +102,10 @@ const RoundedButton = styled.a`
     width: 242px;
     height: 242px;
     bottom: 90px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    position: revert;
+    align-self: flex-end;
   }
 `;
