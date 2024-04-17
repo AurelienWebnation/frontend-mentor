@@ -29,10 +29,19 @@ const Wrapper = styled.main`
   gap: var(--spacing-3);
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 106px;
+    gap: var(--spacing-4);
+  }
 `;
 
 const Description = styled.p`
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    max-width: 444px;
+  }
 `;
 
 const Background = styled.div`
@@ -74,5 +83,8 @@ const RoundedButton = styled.a`
 
   @media ${QUERIES.tabletAndUp} {
     letter-spacing: 2px;
+    width: 242px;
+    height: 242px;
+    bottom: 90px;
   }
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { QUERIES } from '../../constants.ts';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   items: string[];
@@ -10,7 +11,7 @@ export function NavMenu({ items }: Props) {
     <Wrapper>
       {items.map((item, index) => (
         <Item key={index}>
-          <Link href={item.toLowerCase() === 'home' ? '/' : `/${item}`}>
+          <Link to={item.toLowerCase() === 'home' ? '/' : `/${item}`}>
             <Number>0{index}</Number>
             {item}
           </Link>
@@ -56,7 +57,7 @@ const Item = styled.li`
   align-items: center;
 `;
 
-const Link = styled.a`
+const Link = styled(NavLink)`
   display: flex;
   gap: var(--spacing-2);
   width: 100%;

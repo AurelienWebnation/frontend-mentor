@@ -121,13 +121,19 @@ export const GlobalStyle = createGlobalStyle`
     --font-size-nav: ${16 / 16}rem;
     --font-size-body: ${15 / 16}rem;
     
-    @media (${QUERIES.tabletAndUp}) {
+    @media ${QUERIES.tabletAndUp} {
       --font-size-heading-1: ${150 / 16}rem;
       --font-size-heading-4: ${32 / 16}rem;
       --font-size-heading-5: ${20 / 16}rem;
+      
+      --font-size-body: ${16 / 16}rem;
+    }
+    
+    @media ${QUERIES.tabletOnly} {
+      --font-size-nav: ${14 / 16}rem;
     }
 
-    @media (${QUERIES.laptopAndUp}) {
+    @media ${QUERIES.laptopAndUp} {
       --font-size-heading-5: ${28 / 16}rem;
     }
     
