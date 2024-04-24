@@ -54,7 +54,6 @@ const Wrapper = styled.header`
 
   @media ${QUERIES.laptopAndUp} {
     padding-top: var(--spacing-6);
-    padding-left: 55px;
   }
 `;
 
@@ -66,6 +65,10 @@ const Logo = styled.img`
     width: 48px;
     height: 48px;
   }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-right: 34px;
+  }
 `;
 
 const HorizontalBar = styled.div`
@@ -76,8 +79,6 @@ const HorizontalBar = styled.div`
   background: var(--color-white);
   opacity: 0.2515;
   width: 100%;
-  max-width: 473px;
-  margin-left: auto;
   transform: translateX(30px);
 
   @media ${QUERIES.laptopAndUp} {
