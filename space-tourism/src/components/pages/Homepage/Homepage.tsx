@@ -36,16 +36,22 @@ const Wrapper = styled.main`
   text-align: center;
 
   @media ${QUERIES.tabletAndUp} {
-    padding-top: 106px;
+    //padding-top: 106px;
     gap: var(--spacing-4);
+    padding-left: revert;
+    padding-right: revert;
   }
 
   @media ${QUERIES.laptopAndUp} {
     flex-direction: row;
     text-align: revert;
     justify-content: space-between;
-    padding-top: 251px;
-    max-width: 1110px;
+    padding-left: 165px;
+    padding-right: 165px;
+
+    @media (min-height: 800px) {
+      padding-top: 251px;
+    }
   }
 `;
 
