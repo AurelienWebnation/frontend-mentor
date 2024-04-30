@@ -1,25 +1,32 @@
 import { Heading } from '../../Heading';
 import styled from 'styled-components';
 import { QUERIES } from '../../../constants.ts';
+import { Background } from '../../Background';
 
 export function Homepage() {
   return (
-    <Wrapper>
-      <Background />
-      <Content>
-        <Heading level={5} as="p">
-          So, you want to travel to
-        </Heading>
-        <Heading level={1}>space</Heading>
-        <Description>
-          Let’s face it; if you want to go to space, you might as well genuinely
-          go to outer space and not hover kind of on the edge of it. Well sit
-          back, and relax because we’ll give you a truly out of this world
-          experience!
-        </Description>
-      </Content>
-      <RoundedButton>Explore</RoundedButton>
-    </Wrapper>
+    <>
+      <Background
+        mobile="/img/home/background-home-mobile.jpg"
+        tablet="/img/home/background-home-tablet.jpg"
+        desktop="/img/home/background-home-desktop.jpg"
+      />
+      <Wrapper>
+        <Content>
+          <Heading level={5} as="p">
+            So, you want to travel to
+          </Heading>
+          <Heading level={1}>space</Heading>
+          <Description>
+            Let’s face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we’ll give you a truly out of this
+            world experience!
+          </Description>
+        </Content>
+        <RoundedButton>Explore</RoundedButton>
+      </Wrapper>
+    </>
   );
 }
 
@@ -28,7 +35,6 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-3);
   padding-left: var(--spacing-4);
   padding-right: var(--spacing-4);
   margin-left: auto;
@@ -36,7 +42,7 @@ const Wrapper = styled.main`
   text-align: center;
 
   @media ${QUERIES.tabletAndUp} {
-    //padding-top: 106px;
+    padding-top: 106px;
     gap: var(--spacing-4);
     padding-left: revert;
     padding-right: revert;
@@ -44,41 +50,27 @@ const Wrapper = styled.main`
 
   @media ${QUERIES.laptopAndUp} {
     flex-direction: row;
+    align-items: end;
+    width: 100%;
     text-align: revert;
     justify-content: space-between;
     padding-left: 165px;
     padding-right: 165px;
+    padding-top: revert;
+    padding-bottom: var(--spacing-7);
 
     @media (min-height: 800px) {
-      padding-top: 251px;
+      padding-bottom: 131px;
     }
   }
 `;
 
 const Content = styled.article`
   display: grid;
-  gap: 24px;
-`;
-
-const Background = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  background-image: url('/img/home/background-home-mobile.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
+  gap: var(--spacing-3);
 
   @media ${QUERIES.tabletAndUp} {
-    background-image: url('/img/home/background-home-tablet.jpg');
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    background-image: url('/img/home/background-home-desktop.jpg');
+    gap: var(--spacing-4);
   }
 `;
 
@@ -98,8 +90,8 @@ const RoundedButton = styled.a`
   letter-spacing: 1.25px;
   text-transform: uppercase;
   border-radius: 50%;
-  position: absolute;
-  bottom: var(--spacing-7);
+  margin-top: auto;
+  margin-bottom: var(--spacing-7);
   display: grid;
   place-items: center;
 
@@ -107,11 +99,12 @@ const RoundedButton = styled.a`
     letter-spacing: 2px;
     width: 242px;
     height: 242px;
-    bottom: 90px;
+    margin-bottom: 90px;
   }
 
   @media ${QUERIES.laptopAndUp} {
     position: revert;
     align-self: flex-end;
+    margin-bottom: revert;
   }
 `;
