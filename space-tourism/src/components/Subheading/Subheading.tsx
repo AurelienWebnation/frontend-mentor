@@ -1,32 +1,32 @@
 import { PropsWithChildren } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 type Props = PropsWithChildren & {
   level: 1 | 2;
+  as: string | null;
 };
 
-export function Subheading({ level, children }: Props) {
-  return <Wrapper level={level}>{children}</Wrapper>;
+export function Subheading({ level, as = null, children }: Props) {
+  return (
+    <Wrapper level={level} as={as || `h${level}`}>
+      {children}
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.p<Props>`
   ${({ level }) => `font-size: var(--font-size-subheading-${level})`};
   color: var(--color-white);
   text-transform: uppercase;
-
-  ${({ level }) => HEADING[level]};
-`;
-
-const subheading1 = css`
   font-family: 'Bellefair', sans-serif;
+
+  ${({ level }) =>
+    level == 2 &&
+    `
+      letter-spacing: 2.362px; 
+      font-family: 'BarlowCondensed', sans-serif;
+      
+    `};
 `;
 
-const subheading2 = css`
-  font-family: 'BarlowCondensed', sans-serif;
-  letter-spacing: 2.362px;
-`;
-
-const HEADING = {
-  1: subheading1,
-  2: subheading2,
-};
+export default Subheading;

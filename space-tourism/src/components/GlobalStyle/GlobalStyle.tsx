@@ -110,8 +110,8 @@ export const GlobalStyle = createGlobalStyle`
 
     // Font-size
     --font-size-heading-1: ${80 / 16}rem;
-    --font-size-heading-2: ${56 / 16}rem;
-    --font-size-heading-3: ${24 / 16}rem;
+    --font-size-heading-2: ${100 / 16}rem;
+    --font-size-heading-3: ${54 / 16}rem;
     --font-size-heading-4: ${20 / 16}rem;
     --font-size-heading-5: ${16 / 16}rem;
 
@@ -123,9 +123,7 @@ export const GlobalStyle = createGlobalStyle`
     
     @media ${QUERIES.tabletAndUp} {
       --font-size-heading-1: ${150 / 16}rem;
-      --font-size-heading-2: ${80 / 16}rem;
-      --font-size-heading-3: ${40 / 16}rem;
-      --font-size-heading-4: ${24 / 16}rem;
+      --font-size-heading-4: ${32 / 16}rem;
       --font-size-heading-5: ${20 / 16}rem;
       
       --font-size-body: ${16 / 16}rem;
@@ -136,9 +134,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     @media ${QUERIES.laptopAndUp} {
-      --font-size-heading-2: ${100 / 16}rem;
-      --font-size-heading-3: ${56 / 16}rem;
-      --font-size-heading-4: ${32 / 16}rem;
       --font-size-heading-5: ${28 / 16}rem;
     }
     
@@ -164,11 +159,6 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--color-text);
     font-size: var(--font-size-body);
     font-family: "Barlow", sans-serif;
-  }
-  
-  #root {
-    display: grid;
-    grid-template-rows: auto 1fr
   }
   
   p {
