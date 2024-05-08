@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+import { QUERIES } from '../../constants.ts';
 
 export const GlobalStyle = createGlobalStyle`
   /* RESET */
@@ -11,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     box-sizing: border-box;
   }
-  
+
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
@@ -54,17 +55,22 @@ export const GlobalStyle = createGlobalStyle`
     overflow-wrap: break-word;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   #root, #__next {
     isolation: isolate;
   }
-  
+
   /* GLOBAL */
   @font-face {
     font-family: 'Fraunces';
     font-style: normal;
-    font-weight: 100 900;
+    font-weight: 300 700;
     font-display: swap;
-    src: url('/fonts/fraunces/Fraunces-Variable.ttf') format('truetype');
+    src: url('/fonts/fraunces/Fraunces.woff2') format('woff2');
   }
 
   @font-face {
@@ -74,4 +80,67 @@ export const GlobalStyle = createGlobalStyle`
     font-display: swap;
     src: url('/fonts/manrope/Manrope-Variable.ttf') format('truetype');
   }
-`
+
+  :root {
+    --color-primary: hsl(273 85% 13%);
+    --color-accent: hsl(150 100% 63%);
+    --color-body: hsl(271 12% 34%);
+    --color-ghost-white: hsl(274 100% 99%);
+    --color-white: hsl(0 0% 100%);
+  }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--color-body);
+    font-size: ${16 / 16}rem;
+    line-height: 28px;
+
+    @media ${QUERIES.laptopAndUp} {
+      font-size: ${18 / 16}rem;
+      line-height: 32px;
+    }
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', sans-serif;
+    letter-spacing: -2px;
+  }
+
+  h1 {
+    font-size: ${50 / 16}rem;
+    line-height: 1;
+
+    @media ${QUERIES.tabletAndUp} {
+      font-size: ${60 / 16}rem;
+    }
+
+    @media ${QUERIES.laptopAndUp} {
+      font-size: ${80 / 16}rem;
+    }
+  }
+
+  h2 {
+    font-size: ${32 / 16}rem;
+    line-height: 48px;
+
+    @media ${QUERIES.tabletAndUp} {
+      font-size: ${48 / 16}rem;
+      line-height: 56px;
+    }
+
+    @media ${QUERIES.laptopAndUp} {
+      font-size: ${56 / 16}rem;
+      line-height: 64px;
+    }
+  }
+
+  h3 {
+    font-size: ${28 / 16}rem;
+    line-height: 36px;
+
+    @media ${QUERIES.laptopAndUp} {
+      font-size: ${32 / 16}rem;
+      line-height: 40px;
+    }
+  }
+`;
