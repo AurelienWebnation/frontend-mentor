@@ -100,47 +100,4 @@ export const GlobalStyle = createGlobalStyle`
       line-height: 32px;
     }
   }
-
-  h1, h2, h3 {
-    font-family: 'Fraunces', sans-serif;
-    letter-spacing: -2px;
-  }
-
-  h1 {
-    font-size: ${50 / 16}rem;
-    line-height: 1;
-
-    @media ${QUERIES.tabletAndUp} {
-      font-size: ${60 / 16}rem;
-    }
-
-    @media ${QUERIES.laptopAndUp} {
-      font-size: ${80 / 16}rem;
-    }
-  }
-
-  h2 {
-    font-size: ${32 / 16}rem;
-    line-height: 48px;
-
-    @media ${QUERIES.tabletAndUp} {
-      font-size: ${48 / 16}rem;
-      line-height: 56px;
-    }
-
-    @media ${QUERIES.laptopAndUp} {
-      font-size: ${56 / 16}rem;
-      line-height: 64px;
-    }
-  }
-
-  h3 {
-    font-size: ${28 / 16}rem;
-    line-height: 36px;
-
-    @media ${QUERIES.laptopAndUp} {
-      font-size: ${32 / 16}rem;
-      line-height: 40px;
-    }
-  }
 `;

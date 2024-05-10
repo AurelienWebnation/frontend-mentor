@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 import { Container } from '../Container';
 import { QUERIES } from '../../constants.ts';
+import { Heading } from '../Heading';
 
 export function ContentTableList() {
   return (
     <Wrapper>
       <Item>
         <Number>1</Number>
-        <Title>Actionable insights</Title>
+        <HeadingWrapper>
+          <Heading level={3} as="h2">
+            Actionable insights
+          </Heading>
+        </HeadingWrapper>
         <Description>
           Optimize your products, improve customer satisfaction and stay ahead
           of the competition with our product data analytics.
@@ -16,7 +21,11 @@ export function ContentTableList() {
 
       <Item>
         <Number>2</Number>
-        <Title>Data-driven decisions</Title>
+        <HeadingWrapper>
+          <Heading level={3} as="h2">
+            Data-driven decisions
+          </Heading>
+        </HeadingWrapper>
         <Description>
           Make data-driven decisions with our product data analytics. Our
           AI-generated reports help you unlock insights hidden in your product
@@ -26,7 +35,11 @@ export function ContentTableList() {
 
       <Item>
         <Number>3</Number>
-        <Title>Always affordable</Title>
+        <HeadingWrapper>
+          <Heading level={3} as="h2">
+            Always affordable
+          </Heading>
+        </HeadingWrapper>
         <Description>
           Always affordable pricing that scales with your business. Get
           top-quality product data analytics services without hidden costs or
@@ -66,7 +79,7 @@ const Item = styled.article`
   }
 `;
 
-const Title = styled.h3`
+const HeadingWrapper = styled.div`
   grid-area: title;
   color: var(--color-primary);
 `;

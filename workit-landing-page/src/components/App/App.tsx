@@ -6,6 +6,7 @@ import { QUERIES } from '../../constants.ts';
 import { Container } from '../Container';
 import { ContentTableList } from '../ContentTableList';
 import { Footer } from '../Footer';
+import { Heading } from '../Heading';
 
 export function App() {
   return (
@@ -13,7 +14,7 @@ export function App() {
       <Hero>
         <Container>
           <Header />
-          <Title>
+          <Title level={1}>
             Data <Underlined>tailored</Underlined> to your needs.
           </Title>
           <Spacer height={40} />
@@ -33,7 +34,7 @@ export function App() {
           alt="Louis Graham, the founder of Workit"
         />
         <AboutDescription>
-          <h2>Be the first to test</h2>
+          <Heading level={2}>Be the first to test</Heading>
           <p>
             Hi, I'm Louis Graham, the founder of the company. Book a demo call
             with me to become a beta tester for our app and kickstart your
@@ -77,7 +78,7 @@ const Underlined = styled.span`
   text-underline-offset: 10px;
 `;
 
-const Title = styled.h1`
+const Title = styled(Heading)`
   max-width: 635px;
   margin-top: 64px;
   margin-left: auto;
