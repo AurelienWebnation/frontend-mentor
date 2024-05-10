@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 export function Footer() {
   return (
@@ -7,6 +8,7 @@ export function Footer() {
       <SocialMediaWrapper>
         <li>
           <a href="#">
+            <VisuallyHidden>Facebook</VisuallyHidden>
             <Icon>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +26,7 @@ export function Footer() {
         </li>
         <li>
           <a href="#">
+            <VisuallyHidden>Instagram</VisuallyHidden>
             <Icon>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +44,7 @@ export function Footer() {
         </li>
         <li>
           <a href="#">
+            <VisuallyHidden>Twitter</VisuallyHidden>
             <Icon>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
