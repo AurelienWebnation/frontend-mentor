@@ -29,7 +29,7 @@ type WrapperProps = {
 
 const Wrapper = styled.div<WrapperProps>`
   font-family: 'Fraunces', sans-serif;
-  letter-spacing: -2px;
+  /*  letter-spacing: -2px;*/
 
   ${({ $level }) => LEVELS[$level - 1]}
 `;

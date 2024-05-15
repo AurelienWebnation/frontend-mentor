@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { QUERIES } from '../../constants.ts';
 
 export function Footer() {
   return (
@@ -69,6 +70,15 @@ const Wrapper = styled.footer`
   display: grid;
   place-items: center;
   gap: 58px;
+  margin-top: 74px;
+
+  @media ${QUERIES.tabletAndUp} {
+    margin-top: 80px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    margin-top: 121.78px;
+  }
 `;
 
 const SocialMediaWrapper = styled.ul`

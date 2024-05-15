@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { QUERIES } from '../../constants.ts';
+import { createGlobalStyle, css } from 'styled-components';
+import { CLIP_PATHS, QUERIES } from '../../constants.ts';
 
 export const GlobalStyle = createGlobalStyle`
   /* RESET */
@@ -68,9 +68,9 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Fraunces';
     font-style: normal;
-    font-weight: 300 700;
+    font-weight: 600;
     font-display: swap;
-    src: url('/fonts/fraunces/Fraunces.woff2') format('woff2');
+    src: url('/fonts/fraunces/Fraunces_144pt-SemiBold.ttf') format('truetype');
   }
 
   @font-face {
@@ -88,7 +88,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-ghost-white: hsl(274 100% 99%);
     --color-white: hsl(0 0% 100%);
   }
-
+  
   body {
     font-family: 'Manrope', sans-serif;
     color: var(--color-body);
@@ -99,5 +99,17 @@ export const GlobalStyle = createGlobalStyle`
       font-size: ${18 / 16}rem;
       line-height: 32px;
     }
+  }
+`;
+
+export const wavyClipPath = css`
+  clip-path: ${CLIP_PATHS.mobileAndUp};
+
+  @media ${QUERIES.tabletAndUp} {
+    clip-path: ${CLIP_PATHS.tabletAndUp};
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    clip-path: ${CLIP_PATHS.laptopAndUp};
   }
 `;

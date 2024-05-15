@@ -15,7 +15,6 @@ export function Header() {
 const Wrapper = styled.header`
   display: flex;
   padding-top: 32px;
-  background: var(--color-primary);
 
   @media ${QUERIES.laptopAndUp} {
     padding-top: 58px;
@@ -26,6 +25,7 @@ const CTA = styled.a`
   margin-left: auto;
   border-bottom: 3px solid var(--color-accent);
   color: var(--color-white);
+  font-weight: 700;
 
   &:hover {
     color: var(--color-accent);

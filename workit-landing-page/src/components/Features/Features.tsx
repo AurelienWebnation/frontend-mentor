@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Container } from '../Container';
 import { QUERIES } from '../../constants.ts';
 import { Heading } from '../Heading';
+import { wavyClipPath } from '../GlobalStyle';
 
 export function Features() {
   return (
@@ -53,16 +54,23 @@ export function Features() {
 }
 
 const Wrapper = styled.section`
-  background: url('/images/content-table-background.svg') no-repeat bottom /
-    cover;
-  padding-top: calc((64px + 80px) * 2);
-  padding-bottom: 12%;
+  min-height: 1071px;
+  background-color: var(--color-ghost-white);
   text-align: center;
-  margin-bottom: 100px;
-  margin-top: -80px;
+  margin-top: -90px;
+  padding-top: 245px;
+  ${wavyClipPath}
 
   @media ${QUERIES.tabletAndUp} {
-    margin-bottom: 250px;
+    min-height: 921px;
+    margin-top: -137px;
+    padding-top: 341px;
+  }
+
+  @media ${QUERIES.laptopAndUp} {
+    min-height: 960px;
+    margin-top: -226px;
+    padding-top: 481px;
   }
 `;
 
@@ -77,6 +85,9 @@ const Grid = styled(Container)`
 `;
 
 const Item = styled.article`
+  max-width: 350px;
+  margin: 0 auto;
+
   @media ${QUERIES.tabletAndUp} {
     display: grid;
     align-items: center;
