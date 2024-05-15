@@ -133,6 +133,8 @@ const Number = styled.span`
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 56px;
+    width: 56px;
+    height: 56px;
   }
 `;
 
