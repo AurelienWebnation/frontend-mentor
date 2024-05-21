@@ -11,7 +11,7 @@ export function App() {
   return (
     <main>
       <Container>
-        <FeaturedImage src="/images/image-omelette.jpeg" />
+        <FeaturedImage alt="omelette" src="/images/image-omelette.jpeg" />
         <Recipe>
           <Introduction>
             <Heading level={1}>Simple Omelette Recipe</Heading>
@@ -34,7 +34,7 @@ export function App() {
 }
 
 const Container = styled.div`
-  max-width: calc(656px + var(--spacing-lg) * 2);
+  max-width: calc(656px + var(--spacing-xl) * 2);
   margin-left: auto;
   margin-right: auto;
   padding: var(--spacing-xl) var(--spacing-lg);

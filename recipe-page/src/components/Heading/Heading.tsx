@@ -31,7 +31,7 @@ const level1Style = css`
   font-weight: 400;
   color: var(--color-dark-charcoal);
 
-  ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     font-size: 40px;
   }
 `;
