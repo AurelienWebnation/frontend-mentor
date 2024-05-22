@@ -18,7 +18,7 @@ interface Props {
 export function ProfileCard({ name, location, biography, links }: Props) {
   return (
     <Wrapper>
-      <Picture src="/images/avatar-jessica.jpeg"></Picture>
+      <Picture alt="Author picture" src="/images/avatar-jessica.jpeg"></Picture>
       <div>
         <Name>{name}</Name>
         <Location>{location}</Location>
@@ -68,6 +68,7 @@ const Picture = styled.img`
 const Name = styled.h1`
   font-size: ${24 / 16}rem;
   font-weight: 600;
+  margin-bottom: var(--spacing-xxs);
 `;
 
 const Location = styled.p`

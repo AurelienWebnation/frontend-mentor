@@ -91,7 +91,8 @@ export const GlobalStyle = createGlobalStyle`
     --color-dark-grey: #1F1F1F;
     --color-white: #FFFFFF;
     --color-neon-green: #C4F82A;
-    
+
+    --spacing-xxs: 4px;
     --spacing-xs: 12px;
     --spacing-sm: 16px;
     --spacing-md: 24px;
