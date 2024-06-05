@@ -25,6 +25,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
 
 const Wrapper = styled.div`
   width: 100%;
+  isolation: isolate;
 `;
 
 const HiddenInput = styled.input.attrs({ type: 'radio' })`

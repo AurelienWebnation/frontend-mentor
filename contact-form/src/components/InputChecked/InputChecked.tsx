@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import checkedIcon from './checkedIcon.svg';
 import { forwardRef, useId } from 'react';
-import { Required } from '../Required';
+import { Label } from '../Label';
 
 interface Props {
   label: string;
@@ -15,10 +15,9 @@ export const InputChecked = forwardRef<HTMLInputElement, Props>(
     return (
       <Wrapper>
         <Input id={`input-checked-${id}`} ref={ref} {...delegated} />
-        <label htmlFor={`input-checked-${id}`}>
+        <Label htmlFor={`input-checked-${id}`} $withSpace={false}>
           {label}
-          <Required required={required} />
-        </label>
+        </Label>
       </Wrapper>
     );
   }
@@ -39,6 +38,7 @@ const Input = styled.input.attrs({ type: 'checkbox' })`
   height: 18px;
   border: 2px solid var(--color-grey-500);
   border-radius: 2px;
+  cursor: pointer;
 
   &:checked {
     border: revert;

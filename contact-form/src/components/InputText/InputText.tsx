@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import type { FieldError } from 'react-hook-form';
+import type { InputTextProps } from './types.ts';
 
-export interface Props {
-  $error?: boolean | FieldError;
-}
-
-export const InputText = styled.input<Props>`
+export const InputText = styled.input<InputTextProps>`
   border: var(--border-width) solid var(--color-grey-500);
   padding: var(--spacing-150) var(--spacing-300);
   border-radius: 8px;

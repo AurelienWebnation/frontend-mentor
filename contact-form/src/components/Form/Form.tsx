@@ -7,6 +7,7 @@ import { FieldText } from '../FieldText';
 import { Button } from '../Button';
 import { FieldTextArea } from '../FieldTextArea';
 import { QUERIES } from '../../constants.ts';
+import { useToast } from '../Toast';
 
 interface FormInput {
   queryType: 'general-enquiry' | 'support-request';
@@ -23,12 +24,20 @@ export function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInput>();
-  const onSubmit: SubmitHandler<FormInput> = (data) => console.log(data);
 
-  console.log(errors.consent);
+  const [setShowToast, Toast] = useToast({
+    timeout: 5000,
+    title: 'Message Sent!',
+    description: 'Thanks for completing the form. We’ll be in touch soon!',
+  });
+
+  const onSubmit: SubmitHandler<FormInput> = () => {
+    setShowToast(true);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      {Toast}
       <Fields>
         <FirstNameWrapper>
           <FieldText
@@ -92,6 +101,7 @@ export function Form() {
         <MessageWrapper>
           <FieldTextArea
             label="Message"
+            $error={errors.message}
             textarea
             {...register('message', { required: 'This field is required' })}
           />
@@ -102,7 +112,7 @@ export function Form() {
       </Fields>
       <ConsentWrapper>
         <InputChecked
-          label="I consent to being contacted by the team"
+          label="I hereby consent to being contacted by the team"
           {...register('consent', {
             required: 'To submit this form, please consent to being contacted',
           })}

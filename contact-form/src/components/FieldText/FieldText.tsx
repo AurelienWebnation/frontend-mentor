@@ -1,13 +1,12 @@
 import { Label } from '../Label';
-import styled, { css } from 'styled-components';
-import { InputText } from '../InputText';
+import styled from 'styled-components';
+import { InputText, InputTextProps } from '../InputText';
 import {
   forwardRef,
   InputHTMLAttributes,
   TextareaHTMLAttributes,
   useId,
 } from 'react';
-import type { Props as InputTextProps } from '../InputText';
 
 type Props = InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement> &
@@ -25,34 +24,27 @@ export const FieldText = forwardRef<HTMLInputElement, Props>(
     const id = useId();
 
     return (
-      <Wrapper $error={$error}>
+      <Wrapper>
         <Label htmlFor={`field-text-${id}`} required={required}>
           {label}
         </Label>
         <InputText
           id={`field-text-${id}`}
-          {...delegated}
           ref={ref}
           as={textarea ? 'textarea' : 'input'}
+          $error={$error}
+          {...delegated}
         />
       </Wrapper>
     );
   }
 );
 
-const Wrapper = styled.div<InputTextProps>`
+const Wrapper = styled.div`
   display: grid;
   gap: var(--spacing-100);
 
   & label:has(+ ${InputText}:focus) {
     color: var(--color-green-600);
-  }
-
-  ${({ $error }) => $error && errorStyles}
-`;
-
-const errorStyles = css`
-  ${InputText} {
-    border-color: var(--color-red);
   }
 `;
