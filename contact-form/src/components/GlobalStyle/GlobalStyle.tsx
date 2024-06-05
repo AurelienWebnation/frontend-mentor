@@ -108,6 +108,9 @@ export const GlobalStyle = createGlobalStyle`
     --font-size-body-sm: ${theme.fontSizes.body.sm / 16}rem;
     --font-size-body-md: ${theme.fontSizes.body.md / 16}rem;
     --font-size-heading: ${theme.fontSizes.heading / 16}rem;
+    
+    // Others
+    --border-width: 1px;
   }
   
   * {
@@ -118,5 +121,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: var(--font-size-body-sm);
     color: var(--color-grey-900);
     font-family: Karla, sans-serif;
+    background: var(--color-green-200);
   }
 `;
