@@ -14,7 +14,7 @@ export const InputRadio = forwardRef<HTMLInputElement, Props>(
         <Observer>
           <HiddenInput id={`input-radio-${id}`} {...delegated} ref={ref} />
           <Label htmlFor={`input-radio-${id}`}>
-            <Checkbox />
+            <Icon />
             {label}
           </Label>
         </Observer>
@@ -40,6 +40,7 @@ const Label = styled.label`
   border: 1px solid var(--color-grey-500);
   border-radius: 8px;
   padding: var(--spacing-150) var(--spacing-300);
+  font-size: var(--font-size-body-md);
   cursor: pointer;
   isolation: isolate;
   position: relative;
@@ -51,13 +52,12 @@ const Label = styled.label`
   }
 `;
 
-const Checkbox = styled.span`
-  width: 19.5px;
-  height: 19.5px;
-  border: 2px solid var(--color-grey-500);
-  opacity: 0.5;
-  border-radius: 50%;
-  display: block;
+const Icon = styled.span`
+  background: url('/images/icon-radio-unselected.svg') no-repeat;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
 `;
 
 const Observer = styled.div`
@@ -67,19 +67,8 @@ const Observer = styled.div`
     background: var(--color-green-200);
   }
 
-  ${HiddenInput}:checked + ${Label} ${Checkbox} {
-    border-color: var(--color-green-600);
+  ${HiddenInput}:checked + ${Label} ${Icon} {
     opacity: 1;
-    display: grid;
-    place-items: center;
-
-    &::after {
-      content: '';
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--color-green-600);
-    }
+    background: url('/images/icon-radio-selected.svg') no-repeat;
   }
 `;
