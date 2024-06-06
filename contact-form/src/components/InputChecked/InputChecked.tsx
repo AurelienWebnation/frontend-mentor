@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import checkedIcon from './checkedIcon.svg';
 import { forwardRef, useId } from 'react';
 import { Label } from '../Label';
 
@@ -42,6 +41,6 @@ const Input = styled.input.attrs({ type: 'checkbox' })`
 
   &:checked {
     border: revert;
-    background: url(${checkedIcon});
+    background: url('/images/icon-checkbox-check.svg') no-repeat center center;
   }
 `;
