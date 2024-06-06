@@ -134,7 +134,8 @@ const Fields = styled.div`
     'emailAddress emailAddress'
     'queryType queryType'
     'message message';
-  gap: var(--spacing-300);
+  row-gap: var(--spacing-300);
+  column-gap: var(--spacing-200);
 
   @media ${QUERIES.tabletAndUp} {
     grid-template-areas:
