@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import type { InputTextProps } from './types.ts';
 
-export const InputText = styled.input<InputTextProps>`
+export const InputText = styled.input`
   border: var(--border-width) solid var(--color-grey-500);
   padding: var(--spacing-150) var(--spacing-300);
   border-radius: 8px;
@@ -15,8 +14,6 @@ export const InputText = styled.input<InputTextProps>`
   &:focus {
     outline: none;
   }
-
-  ${({ $error }) => $error && `border-color: var(--color-red);`}
 `;
 
 InputText.defaultProps = {

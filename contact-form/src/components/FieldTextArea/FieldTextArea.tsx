@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { FieldText } from '../FieldText';
 import { QUERIES } from '../../constants.ts';
+import { InputText } from '../InputText';
 
-export const FieldTextArea = styled(FieldText)`
+export const FieldTextArea = styled(InputText).attrs({ as: 'textarea' })`
   --min-height: 216px;
 
   min-height: calc(

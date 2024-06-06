@@ -85,7 +85,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
   }
   
-  :root {
+  html {
     // Colors
     --color-grey-900: hsl(187, 24%, 22%);
     --color-grey-500: hsl(186, 15%, 59%);
