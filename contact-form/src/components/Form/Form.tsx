@@ -128,16 +128,13 @@ export function Form() {
 }
 
 const Fields = styled.div`
-  --row-gap: var(--spacing-300);
-
   display: grid;
-  row-gap: var(--row-gap);
+  row-gap: var(--spacing-300);
   column-gap: var(--spacing-200);
 `;
 
 const TwoColumns = styled(Fields)<{ $smallRowGap?: boolean }>`
   ${({ $smallRowGap }) => $smallRowGap && 'row-gap: var(--spacing-200);'}
-
   grid-template-columns: 1fr;
 
   @media ${QUERIES.tabletAndUp} {
