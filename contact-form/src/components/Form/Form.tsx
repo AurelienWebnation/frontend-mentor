@@ -30,7 +30,6 @@ export function Form() {
   const firstNameId = useId();
   const lastNameId = useId();
   const emailAddressId = useId();
-  const queryTypeId = useId();
   const messageId = useId();
 
   const [setShowToast, Toast] = useToast({
@@ -81,9 +80,7 @@ export function Form() {
         </FormGroup>
 
         <FormGroup $error={errors.queryType} $extraSpace>
-          <Label as="p" htmlFor={queryTypeId}>
-            Query Type
-          </Label>
+          <Label as="p">Query Type</Label>
           <TwoColumns $smallRowGap>
             <InputRadio
               label="General Enquiry"
