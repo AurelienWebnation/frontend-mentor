@@ -114,7 +114,7 @@ export function Form() {
       <ConsentWrapper>
         <FormGroup $error={errors.consent}>
           <InputChecked
-            label="I hereby consent to being contacted by the team"
+            label="I consent to being contacted by the team"
             {...register('consent', {
               required:
                 'To submit this form, please consent to being contacted',
