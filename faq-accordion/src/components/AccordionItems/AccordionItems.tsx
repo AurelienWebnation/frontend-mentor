@@ -1,6 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import { AccordionItem } from './AccordionItem.tsx';
-import styled from 'styled-components';
 
 type AccordionItemsProps = {
   data: {
@@ -11,12 +10,10 @@ type AccordionItemsProps = {
 
 export function AccordionItems({ data }: AccordionItemsProps) {
   return (
-    <Wrapper collapsible={true}>
+    <Accordion.Root type="single" collapsible={true}>
       {data.map((item, index) => (
         <AccordionItem key={index} {...item} />
       ))}
-    </Wrapper>
+    </Accordion.Root>
   );
 }
-
-const Wrapper = styled(Accordion.Root)``;
