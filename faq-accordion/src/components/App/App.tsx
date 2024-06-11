@@ -32,7 +32,8 @@ const Wrapper = styled.div`
 `;
 
 const TopBackground = styled.div`
-  background: url('/images/background-pattern-mobile.svg') no-repeat;
+  background-image: url('/images/background-pattern-mobile.svg');
+  background-repeat: no-repeat;
   background-size: cover;
   height: 232px;
   position: absolute;
@@ -42,7 +43,7 @@ const TopBackground = styled.div`
   z-index: -1;
 
   @media ${QUERIES.tabletAndUp} {
-    background: url('/images/background-pattern-desktop.svg') no-repeat;
+    background-image: url('/images/background-pattern-desktop.svg');
     height: 320px;
   }
 `;
