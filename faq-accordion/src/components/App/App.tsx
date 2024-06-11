@@ -73,7 +73,7 @@ const StarIcon = styled.img`
   height: 24px;
 
   @media ${QUERIES.tabletAndUp} {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
   }
 `;

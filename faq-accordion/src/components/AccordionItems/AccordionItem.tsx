@@ -15,7 +15,9 @@ export function AccordionItem({ title, content, id }: Props) {
   return (
     <Item value={`accordion-${id + 1}`}>
       <Trigger>
-        <Heading $level={2}>{title}</Heading>
+        <Heading $level={2} as="span">
+          {title}
+        </Heading>
       </Trigger>
       <Content>{content}</Content>
     </Item>
