@@ -15,7 +15,7 @@ export function App() {
             <StarIcon src="/images/icon-star.svg" alt="" />
             <Heading $level={1}>FAQs</Heading>
           </Header>
-          <AccordionItems data={FAQS} />
+          <AccordionItems data={FAQS} defaultValue={1} />
         </Container>
       </Card>
     </Wrapper>

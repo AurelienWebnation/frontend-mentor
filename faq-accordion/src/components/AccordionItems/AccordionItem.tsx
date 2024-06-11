@@ -1,19 +1,19 @@
 import { Heading } from '../Heading';
 import * as Accordion from '@radix-ui/react-accordion';
 import styled from 'styled-components';
-import { useId } from 'react';
 import { QUERIES } from '../../constants.ts';
 
 interface Props {
   title: string;
   content: string;
+  id: number;
 }
 
-export function AccordionItem({ title, content }: Props) {
-  const id = useId();
+export function AccordionItem({ title, content, id }: Props) {
+  console.log();
 
   return (
-    <Item value={id}>
+    <Item value={`accordion-${id + 1}`}>
       <Trigger>
         <Heading $level={2}>{title}</Heading>
       </Trigger>
