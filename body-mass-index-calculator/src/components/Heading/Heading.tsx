@@ -56,7 +56,7 @@ const heading_l_styles = css`
   }
 `;
 
-const heading_m_styles = css`
+export const heading_m_styles = css`
   ${base_styles};
   font-size: ${24 / 16}rem;
   letter-spacing: -1.2px;
