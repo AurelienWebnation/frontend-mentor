@@ -15,7 +15,7 @@ export function App() {
             <StarIcon src="/images/icon-star.svg" alt="" />
             <Heading $level={1}>FAQs</Heading>
           </Header>
-          <AccordionItems data={FAQS} defaultValue={1} />
+          <AccordionItems data={FAQS} defaultValue="what-is-frontend-mentor" />
         </Container>
       </Card>
     </Wrapper>

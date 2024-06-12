@@ -1,12 +1,14 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import { AccordionItem } from './AccordionItem.tsx';
+import type { AccordionItemProps } from '@radix-ui/react-accordion';
 
 type AccordionItemsProps = {
   data: {
     title: string;
     content: string;
+    id: string;
   }[];
-  defaultValue?: number;
+  defaultValue?: AccordionItemProps['value'];
 };
 
 export function AccordionItems({ data, defaultValue }: AccordionItemsProps) {
@@ -14,10 +16,10 @@ export function AccordionItems({ data, defaultValue }: AccordionItemsProps) {
     <Accordion.Root
       type="single"
       collapsible={true}
-      defaultValue={`accordion-${defaultValue}` || undefined}
+      defaultValue={defaultValue || undefined}
     >
-      {data.map((item, index) => (
-        <AccordionItem key={index} id={index} {...item} />
+      {data.map((item) => (
+        <AccordionItem key={item.id} value={item.id} {...item} />
       ))}
     </Accordion.Root>
   );
