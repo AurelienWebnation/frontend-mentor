@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400 600;
+    font-weight: 400 700;
     font-display: swap;
     src: url('/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
   }
@@ -86,6 +86,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-gunmetal: hsl(215, 31%, 21%);
     --color-dark-electric-blue: hsl(215, 17%, 45%);
     --color-pure-white: hsl(0, 0%, 100%);
+    --color-gradiant-1: linear-gradient(290deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
     
     // Fonts sizes
     --font-size-body-m: ${16 / 16}rem;
@@ -96,6 +97,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', sans-serif;
     font-size: var(--font-size-body-m);
     line-height: 150%;
-    color: var(--dark-electric-blue);
+    color: var(--color-dark-electric-blue);
   }
 `;
