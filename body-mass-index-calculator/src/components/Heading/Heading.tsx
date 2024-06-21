@@ -50,7 +50,7 @@ const heading_l_styles = css`
   font-size: ${32 / 16}rem;
   letter-spacing: -1.6px;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     font-size: ${48 / 16}rem;
     letter-spacing: -2.4px;
   }

@@ -2,6 +2,7 @@ import { InputRadio } from '../InputRadio';
 import styled from 'styled-components';
 import type { Dispatch, SetStateAction } from 'react';
 import type { UnitsType } from './types.ts';
+import { QUERIES } from '../../constants.ts';
 
 interface ImperialOrMetricRadioProps {
   unitType: UnitsType;
@@ -13,7 +14,7 @@ export function ImperialOrMetricRadio({
   setUnitType,
 }: ImperialOrMetricRadioProps) {
   return (
-    <>
+    <Wrapper>
       <Group>
         <InputRadio
           name="unit"
@@ -34,9 +35,20 @@ export function ImperialOrMetricRadio({
         />
         <Label htmlFor="imperial">Imperial</Label>
       </Group>
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+`;
 
 const Group = styled.div`
   display: flex;

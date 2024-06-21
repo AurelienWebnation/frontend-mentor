@@ -11,6 +11,7 @@ import { Label } from '../Label';
 import type { ImperialUnits, Units } from './types.ts';
 import { round } from '../../utils.ts';
 import { convertOtherStateValues } from './bmi-calculator.helpers.ts';
+import { QUERIES } from '../../constants.ts';
 
 interface ImperialInputsProps {
   units: ImperialUnits;
@@ -90,4 +91,8 @@ const Wrapper = styled.div`
 const InputGroup = styled.div`
   display: flex;
   gap: 16px;
+
+  @media ${QUERIES.tabletAndUp} {
+    gap: 24px;
+  }
 `;

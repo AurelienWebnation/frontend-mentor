@@ -12,6 +12,7 @@ import {
   getIdealWeightRange,
 } from './bmi-calculator.helpers.ts';
 import { Result } from './Result.tsx';
+import { QUERIES } from '../../constants.ts';
 
 export function BmiCalculator() {
   const [unitType, setUnitType] = useState<UnitsType>('metric');
@@ -38,9 +39,7 @@ export function BmiCalculator() {
         Enter your details below
       </Heading>
 
-      <UnitWrapper>
-        <ImperialOrMetricRadio unitType={unitType} setUnitType={setUnitType} />
-      </UnitWrapper>
+      <ImperialOrMetricRadio unitType={unitType} setUnitType={setUnitType} />
 
       {unitType === 'metric' && (
         <MetricInputs units={units.metric} setState={setUnits} />
@@ -49,14 +48,12 @@ export function BmiCalculator() {
         <ImperialInputs units={units.imperial} setState={setUnits} />
       )}
 
-      {!!bmi && (
-        <Result
-          bmi={bmi}
-          sentence={sentence}
-          idealWeight={idealWeight}
-          unitType={unitType}
-        />
-      )}
+      <Result
+        bmi={bmi}
+        sentence={sentence}
+        idealWeight={idealWeight}
+        unitType={unitType}
+      />
     </Wrapper>
   );
 }
@@ -65,9 +62,9 @@ const Wrapper = styled(Card)`
   display: grid;
   gap: 24px;
   padding: 24px;
-`;
 
-const UnitWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+  @media ${QUERIES.tabletAndUp} {
+    padding: 32px;
+    gap: 32px;
+  }
 `;

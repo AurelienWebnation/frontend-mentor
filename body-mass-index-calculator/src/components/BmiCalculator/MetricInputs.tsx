@@ -11,6 +11,7 @@ import { Label } from '../Label';
 import type { MetricUnits, Units } from './types.ts';
 import { round } from '../../utils.ts';
 import { convertOtherStateValues } from './bmi-calculator.helpers.ts';
+import { QUERIES } from '../../constants.ts';
 
 interface MetricInputsProps {
   units: MetricUnits;
@@ -66,4 +67,9 @@ export function MetricInputs({ units, setState }: MetricInputsProps) {
 const Wrapper = styled.div`
   display: grid;
   gap: 16px;
+
+  @media ${QUERIES.tabletAndUp} {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
 `;

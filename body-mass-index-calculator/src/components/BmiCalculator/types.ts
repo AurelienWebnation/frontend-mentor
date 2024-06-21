@@ -34,41 +34,41 @@ export interface IdealWeight {
   maxPounds: number;
 }
 
-type FeetConversions = {
+interface FeetConversions {
   inch: number;
   cm: number;
-};
+}
 
-type InchConversions = {
+interface InchConversions {
   feet: number;
   cm: number;
-};
+}
 
-type StoneConversions = {
+interface StoneConversions {
   pound: number;
   kg: number;
-};
+}
 
-type PoundConversions = {
+interface PoundConversions {
   stone: number;
   kg: number;
-};
+}
 
-type CmConversions = {
+interface CmConversions {
   feet: number;
   inch: number;
-};
+}
 
-type KgConversions = {
+interface KgConversions {
   stone: number;
   pound: number;
-};
+}
 
-export type ConversionMap = {
+export interface ConversionMap {
   feet: FeetConversions;
   inch: InchConversions;
   stone: StoneConversions;
   pound: PoundConversions;
   cm: CmConversions;
   kg: KgConversions;
-};
+}
