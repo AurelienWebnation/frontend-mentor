@@ -87,6 +87,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-gunmetal: hsl(215, 31%, 21%);
     --color-dark-electric-blue: hsl(215, 17%, 45%);
     --color-pure-white: hsl(0, 0%, 100%);
+    
     --color-gradiant-1: linear-gradient(290deg, #D6E6FE 0%, rgba(214, 252, 254, 0.00) 100%);
     
     // Fonts sizes

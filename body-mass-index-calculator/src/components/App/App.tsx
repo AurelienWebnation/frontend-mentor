@@ -1,11 +1,11 @@
-import { Hero } from '../pages/Homepage';
-import { YourResult } from '../pages/Homepage/';
+import { Hero, YourResult, Tips } from '../pages/Homepage';
 
 export function App() {
   return (
     <>
       <Hero />
       <YourResult />
+      <Tips />
     </>
   );
 }
