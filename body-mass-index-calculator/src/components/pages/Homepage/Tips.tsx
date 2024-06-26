@@ -81,7 +81,7 @@ const TipsContainer = styled(Container)`
   display: grid;
   gap: 40px;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
@@ -97,7 +97,7 @@ const TipsGroup = styled.article`
     gap: 40px;
   }
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     grid-template-columns: revert;
   }
 `;

@@ -1,4 +1,4 @@
-import { Hero, YourResult, Tips } from '../pages/Homepage';
+import { Hero, YourResult, Tips, BmiLimitations } from '../pages/Homepage';
 
 export function App() {
   return (
@@ -6,6 +6,7 @@ export function App() {
       <Hero />
       <YourResult />
       <Tips />
+      <BmiLimitations />
     </>
   );
 }
