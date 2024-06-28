@@ -89,6 +89,8 @@ const Logo = styled.img`
   @media ${QUERIES.laptopAndUp} {
     margin-top: 75px;
     margin-bottom: calc(127px - 35px);
+    width: 64px;
+    height: 64px;
   }
 `;
 
