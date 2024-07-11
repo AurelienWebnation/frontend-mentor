@@ -1,17 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components';
+import { QUERIES } from '../../constants.ts';
 
-const darkColors = css`
-  --color-black-1: #050505;
-  --color-black-2: #1f1f1f;
-  --color-black-3: #2d2d2d;
-  --color-black-4: #3a3a3a;
-  --color-grey-1: #757575;
-  --color-grey-2: #e9e9e9;
-  --color-grey-3: #f4f4f4;
-  --color-white: #ffffff;
-  --color-purple: #a445ed;
-  --color-red: #ff5252;
-`;
+const darkColors = css``;
 
 export const GlobalStyle = createGlobalStyle`
   /* RESET */
@@ -117,9 +107,9 @@ export const GlobalStyle = createGlobalStyle`
     font-display: swap;
     src: url('/fonts/lora/Lora-Italic-VariableFont_wght.ttf') format('truetype');
   }
-
-  // Colors
+  
   :root {
+    // Colors
     --color-black-1: #050505;
     --color-black-2: #1f1f1f;
     --color-black-3: #2d2d2d;
@@ -131,7 +121,23 @@ export const GlobalStyle = createGlobalStyle`
     --color-purple: #a445ed;
     --color-red: #ff5252;
     
+    --color-body-text: var(--color-black-3);
+
+    // Font sizes
+    --font-size-body-s: ${14 / 16}rem;
+    --font-size-body-m: ${15 / 16}rem;
     
+    --font-size-heading-s: ${16 / 16}rem;
+    --font-size-heading-m: ${18 / 16}rem;
+    --font-size-heading-l: ${32 / 16}rem;
+    
+    @media ${QUERIES.tabletAndUp} {
+      --font-size-body-m: ${18 / 16}rem;
+      
+      --font-size-heading-s: ${20 / 16}rem;
+      --font-size-heading-m: ${24 / 16}rem;
+      --font-size-heading-l: ${64 / 16}rem;
+    }
   }
 
   [data-theme='dark'] {
@@ -145,19 +151,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background: var(--background);
-    color: var(--text-primary);
+    font-family: Inter, sans-serif;
+    color: var(--color-body-text);
+    font-size: var(--font-size-m);
   }
-  
-/*  @media (prefers-color-scheme: dark), body[data-theme='dark']  {
-    --background: #05010a;
-    --text-primary: #f2f2f2;
-    --text-secondary: #a7a4a4;
-    --accent: #6a5acd;
-    --accent-hover: #5b4cbe;
-    --border: #696969;
-    --shadow: 7px 15px 13px -4px #ffffff1b;
-  }*/
-  
-
 `;
