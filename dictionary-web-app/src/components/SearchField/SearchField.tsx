@@ -1,15 +1,27 @@
 import styled from 'styled-components';
 
-export function SearchField() {
+interface SearchFieldProps {
+  error?: boolean;
+}
+
+export function SearchField({ error }: SearchFieldProps) {
   return (
-    <Label>
-      <Input type="text" placeholder="Search for any word..." />
-      <Icon src="/images/icon-search.svg" alt="Search" />
-    </Label>
+    <Wrapper>
+      <Label error={error}>
+        <Input type="text" placeholder="Search for any word..." />
+        <Icon src="/images/icon-search.svg" alt="Search" />
+      </Label>
+      {error && <Error>Whoops, can’t be empty…</Error>}
+    </Wrapper>
   );
 }
 
-const Label = styled.label`
+const Wrapper = styled.div`
+  display: grid;
+  gap: 8px;
+`;
+
+const Label = styled.label<SearchFieldProps>`
   background: var(--color-grey-3);
   display: flex;
   border-radius: 16px;
@@ -17,6 +29,8 @@ const Label = styled.label`
   &:has(input:focus) {
     outline: 1px solid var(--color-purple);
   }
+
+  ${({ error }) => error && `outline: 1px solid var(--color-red);`}
 `;
 
 const Input = styled.input`
@@ -38,4 +52,9 @@ const Input = styled.input`
 
 const Icon = styled.img`
   padding-right: 24px;
+`;
+
+const Error = styled.p`
+  font-size: var(--font-size-heading-s);
+  color: var(--color-red);
 `;
