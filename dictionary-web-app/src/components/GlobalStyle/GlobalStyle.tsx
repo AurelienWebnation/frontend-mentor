@@ -3,6 +3,20 @@ import { QUERIES } from '../../constants.ts';
 
 const darkColors = css``;
 
+const selectedTypo = css`
+  [data-typo='sansSerif'] {
+    --font-family: var(--font-family-sans-serif);
+  }
+
+  [data-typo='serif'] {
+    --font-family: var(--font-family-serif);
+  }
+
+  [data-typo='mono'] {
+    --font-family: var(--font-family-mono);
+  }
+`;
+
 export const GlobalStyle = createGlobalStyle`
   /* RESET */
   *, *::before, *::after {
@@ -138,6 +152,12 @@ export const GlobalStyle = createGlobalStyle`
       --font-size-heading-m: ${24 / 16}rem;
       --font-size-heading-l: ${64 / 16}rem;
     }
+    
+    // Font families
+    --font-family-sans-serif: 'Inter', sans-serif;
+    --font-family-serif: 'Lora', serif;
+    --font-family-mono: 'Incosolata', monospace;
+    ${selectedTypo};
   }
 
   [data-theme='dark'] {
@@ -151,7 +171,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: Inter, sans-serif;
+    font-family: var(--font-family);
     color: var(--color-body-text);
     font-size: var(--font-size-m);
   }
