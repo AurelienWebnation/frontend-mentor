@@ -1,8 +1,10 @@
 import {
   type ChangeEvent,
   createContext,
+  memo,
   type PropsWithChildren,
   useCallback,
+  useMemo,
 } from 'react';
 import { useBodyDataValue } from '../../hooks/use-body-data-value.hook.ts';
 
@@ -21,7 +23,9 @@ export const DarkThemeContext =
 
 type Theme = 'light' | 'dark';
 
-export function DarkThemeProvider({ children }: PropsWithChildren) {
+export const DarkThemeProvider = memo(function ({
+  children,
+}: PropsWithChildren) {
   const [theme, setTheme] = useBodyDataValue<Theme>('theme', 'light');
 
   const handleDarkThemeChange = useCallback(
@@ -30,9 +34,11 @@ export function DarkThemeProvider({ children }: PropsWithChildren) {
     []
   );
 
+  const value = useMemo(() => ({ theme, handleDarkThemeChange }), [theme]);
+
   return (
-    <DarkThemeContext.Provider value={{ theme, handleDarkThemeChange }}>
+    <DarkThemeContext.Provider value={value}>
       {children}
     </DarkThemeContext.Provider>
   );
-}
+});
