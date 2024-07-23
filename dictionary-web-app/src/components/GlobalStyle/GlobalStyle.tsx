@@ -173,6 +173,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: var(--font-family);
     color: var(--color-body-text);
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-body-m);
   }
 `;

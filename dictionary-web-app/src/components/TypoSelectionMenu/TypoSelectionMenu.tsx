@@ -1,11 +1,12 @@
 import * as Select from '@radix-ui/react-select';
 import styled from 'styled-components';
 import { useBodyDataValue } from '../../hooks/use-body-data-value.hook.ts';
+import { QUERIES } from '../../constants.ts';
 
 type Typos = 'sansSerif' | 'serif' | 'mono';
 
 export function TypoSelectionMenu() {
-  const [typo, setTypo] = useBodyDataValue<Typos>('typo', 'sansSerif');
+  const [_, setTypo] = useBodyDataValue<Typos>('typo', 'sansSerif');
 
   function handleChange(nextValue: Typos) {
     setTypo(nextValue);
@@ -15,7 +16,7 @@ export function TypoSelectionMenu() {
     <>
       <Select.Root onValueChange={handleChange}>
         <Trigger>
-          <Select.Value placeholder={typo} />
+          <Select.Value placeholder="Sans Serif" />
           <ArrowDownIcon src="/images/icon-arrow-down.svg" alt="Arrow down" />
         </Trigger>
 
@@ -41,9 +42,14 @@ export function TypoSelectionMenu() {
 
 const Trigger = styled(Select.Trigger)`
   display: flex;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
   cursor: pointer;
+  font-weight: 700;
+
+  @media ${QUERIES.tabletAndUp} {
+    gap: 18px;
+  }
 `;
 
 const ArrowDownIcon = styled.img`
