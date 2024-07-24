@@ -29,6 +29,9 @@ const Label = styled.label`
   &:has(input:checked) {
     background: var(--color-purple);
   }
+
+  /* Fix checkbox position bug when body font-size change */
+  font-size: 14px;
 `;
 
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`
