@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { QUERIES } from '../../constants.ts';
 
 export const Container = styled.div`
-  max-width: 689px;
+  max-width: 688px;
   margin: 0 auto;
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${QUERIES.laptopAndUp} {
     max-width: 737px;
   }
 `;
