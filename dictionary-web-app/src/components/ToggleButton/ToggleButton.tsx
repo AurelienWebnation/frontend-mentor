@@ -24,6 +24,7 @@ const Label = styled.label`
   width: var(--label-width);
   height: 20px;
   border-radius: 10px;
+  cursor: pointer;
   position: relative;
 
   &:has(input:checked) {
@@ -32,6 +33,7 @@ const Label = styled.label`
 
   /* Fix checkbox position bug when body font-size change */
   font-size: 14px;
+  line-height: normal;
 `;
 
 const Checkbox = styled.input.attrs({ type: 'checkbox' })`

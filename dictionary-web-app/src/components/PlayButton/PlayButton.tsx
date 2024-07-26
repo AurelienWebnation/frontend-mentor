@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import IconPlaySvg from './assets/icon-play.svg';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { QUERIES } from '../../constants.ts';
 
 export function PlayButton({ ...delegated }) {
   return (
@@ -13,6 +14,7 @@ export function PlayButton({ ...delegated }) {
 
 export const IconPlay = styled(IconPlaySvg)`
   cursor: pointer;
+  width: 48px;
 
   &:hover {
     circle {
@@ -22,5 +24,9 @@ export const IconPlay = styled(IconPlaySvg)`
     path {
       fill: var(--color-white);
     }
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    width: revert;
   }
 `;

@@ -1,14 +1,16 @@
 import styled from 'styled-components';
+import { QUERIES } from '../../constants.ts';
+import type { ComponentProps } from 'react';
 
-interface SearchFieldProps {
+type SearchFieldProps = ComponentProps<'input'> & {
   error?: boolean;
-}
+};
 
-export function SearchField({ error }: SearchFieldProps) {
+export function SearchField({ error, ...delegated }: SearchFieldProps) {
   return (
     <Wrapper>
       <Label error={error}>
-        <Input type="text" placeholder="Search for any word..." />
+        <Input type="text" {...delegated} />
         <Icon src="/images/icon-search.svg" alt="Search" />
       </Label>
       {error && <Error>Whoops, can’t be empty…</Error>}
@@ -34,19 +36,23 @@ const Label = styled.label<SearchFieldProps>`
 `;
 
 const Input = styled.input`
-  padding: 20px 24px;
+  padding: 16px 24px;
   background: transparent;
   width: 100%;
   font-weight: 700;
   font-size: var(--font-size-heading-s);
 
   &::placeholder {
-    color: inherit;
+    color: var(--color-black-3);
     opacity: 0.25;
   }
 
   &:focus {
     outline: none;
+  }
+
+  @media ${QUERIES.tabletAndUp} {
+    padding: 20px 24px;
   }
 `;
 

@@ -46,6 +46,7 @@ const Trigger = styled(Select.Trigger)`
   align-items: center;
   cursor: pointer;
   font-weight: 700;
+  color: var(--color-black-3);
 
   @media ${QUERIES.tabletAndUp} {
     gap: 18px;

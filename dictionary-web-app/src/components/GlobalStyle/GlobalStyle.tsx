@@ -134,8 +134,6 @@ export const GlobalStyle = createGlobalStyle`
     --color-white: #ffffff;
     --color-purple: #a445ed;
     --color-red: #ff5252;
-    
-    --color-body-text: var(--color-black-3);
 
     // Font sizes
     --font-size-body-s: ${14 / 16}rem;
@@ -172,7 +170,8 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: var(--font-family);
-    color: var(--color-body-text);
+    color: var(--color-black-3);
     font-size: var(--font-size-body-m);
+    line-height: 24px;
   }
 `;
