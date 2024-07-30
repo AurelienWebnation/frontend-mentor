@@ -15,7 +15,9 @@
     "@radix-ui/react-visually-hidden": "^1.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.11"
+    "react-spinners": "^0.14.1",
+    "styled-components": "^6.1.11",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@aureliencabirol/new-component": "^6.0.2",

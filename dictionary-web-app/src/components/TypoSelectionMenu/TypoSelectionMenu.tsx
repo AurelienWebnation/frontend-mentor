@@ -2,15 +2,16 @@ import * as Select from '@radix-ui/react-select';
 import styled from 'styled-components';
 import { useBodyDataValue } from '../../hooks/use-body-data-value.hook.ts';
 import { QUERIES } from '../../constants.ts';
+import { useCallback } from 'react';
 
 type Typos = 'sansSerif' | 'serif' | 'mono';
 
 export function TypoSelectionMenu() {
   const [_, setTypo] = useBodyDataValue<Typos>('typo', 'sansSerif');
 
-  function handleChange(nextValue: Typos) {
+  const handleChange = useCallback(function (nextValue: Typos) {
     setTypo(nextValue);
-  }
+  }, []);
 
   return (
     <>
@@ -82,6 +83,7 @@ const Viewport = styled(Select.Viewport)`
 
 const Item = styled(Select.Item)`
   cursor: pointer;
+  font-weight: 700;
 
   &:hover {
     color: var(--color-purple);
