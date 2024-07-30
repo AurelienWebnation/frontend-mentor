@@ -2,31 +2,12 @@ import { SearchField } from '../SearchField';
 import styled from 'styled-components';
 import { type ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { QUERIES } from '../../constants.ts';
-import type { CustomError, DictionaryType } from './type.ts';
+import type { DictionaryType } from './type.ts';
 import { Results } from './Results.tsx';
 import useSWR from 'swr';
 import { MoonLoader } from 'react-spinners';
 import { ErrorMessage } from './ErrorMessage.tsx';
-
-async function fetcher(url: string) {
-  const response = await fetch(url);
-
-  if (response.status === 404) {
-    const error: CustomError = new Error('No Definitions Found');
-    error.info =
-      "Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.";
-    throw error;
-  }
-
-  if (!response.ok) {
-    const error: CustomError = new Error('An error occurred');
-    error.info =
-      'An error occurred while fetching the data. You can try the search again later or contact our support.';
-    throw error;
-  }
-
-  return await response.json();
-}
+import { fetcher } from './fetcher.ts';
 
 export function Dictionary() {
   const [word, setWord] = useState('');
