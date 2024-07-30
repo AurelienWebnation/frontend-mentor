@@ -27,13 +27,7 @@ const Wrapper = styled.h1<Pick<Props, '$level'>>`
   ${({ $level }) => SIZES_STYLES[$level]};
 `;
 
-const base_styles = css`
-  color: var(--color-black-1);
-`;
-
 const l_styles = css`
-  ${base_styles};
-
   font-size: var(--font-size-heading-l);
   font-weight: 700;
 
@@ -43,14 +37,12 @@ const l_styles = css`
 `;
 
 const m_styles = css`
-  ${base_styles};
   line-height: 29px;
 
   font-size: var(--font-size-heading-m);
 `;
 
 const s_styles = css`
-  ${base_styles};
   line-height: 24px;
 
   font-size: var(--font-size-heading-s);

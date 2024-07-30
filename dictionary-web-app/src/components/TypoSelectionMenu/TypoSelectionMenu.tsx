@@ -47,7 +47,6 @@ const Trigger = styled(Select.Trigger)`
   align-items: center;
   cursor: pointer;
   font-weight: 700;
-  color: var(--color-black-3);
 
   @media ${QUERIES.tabletAndUp} {
     gap: 18px;
@@ -61,11 +60,11 @@ const ArrowDownIcon = styled.img`
 
 const Content = styled(Select.Content)`
   min-width: 183px;
-  background-color: white;
   padding: 24px;
   border-radius: 16px;
-  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 30px 0 var(--box-shadow-color);
   margin-top: 18px;
+  background: var(--background-color-dropdown);
 
   &:focus,
   &:focus-within,

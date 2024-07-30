@@ -3,7 +3,7 @@ import { QUERIES } from '../../constants.ts';
 import type { ComponentProps } from 'react';
 
 type SearchFieldProps = ComponentProps<'input'> & {
-  error?: boolean;
+  error?: string | false;
 };
 
 export function SearchField({ error, ...delegated }: SearchFieldProps) {
@@ -13,7 +13,7 @@ export function SearchField({ error, ...delegated }: SearchFieldProps) {
         <Input type="text" {...delegated} />
         <Icon src="/images/icon-search.svg" alt="Search" />
       </Label>
-      {error && <Error>Whoops, can’t be empty…</Error>}
+      {error && <Error>{error}</Error>}
     </Wrapper>
   );
 }
@@ -24,11 +24,12 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled.label<SearchFieldProps>`
-  background: var(--color-grey-3);
+  background: var(--background-color-input);
   display: flex;
   border-radius: 16px;
 
-  &:has(input:focus) {
+  &:has(input:focus),
+  &:hover {
     outline: 1px solid var(--color-purple);
   }
 
@@ -43,7 +44,7 @@ const Input = styled.input`
   font-size: var(--font-size-heading-s);
 
   &::placeholder {
-    color: var(--color-black-3);
+    color: var(--input-placeholder-color);
     opacity: 0.25;
   }
 

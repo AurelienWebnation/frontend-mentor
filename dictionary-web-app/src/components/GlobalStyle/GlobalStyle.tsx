@@ -1,7 +1,14 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { QUERIES } from '../../constants.ts';
 
-const darkColors = css``;
+const darkColors = css`
+  --background-color-body: var(--color-black-1);
+  --background-color-input: var(--color-black-2);
+  --background-color-dropdown: var(--color-black-2);
+  --font-color: var(--color-white);
+  --input-placeholder-color: var(--color-white);
+  --box-shadow-color: var(--color-purple);
+`;
 
 const selectedTypo = css`
   [data-typo='sansSerif'] {
@@ -27,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+    color: inherit;
   }
 
   article, aside, details, figcaption, figure,
@@ -134,6 +142,13 @@ export const GlobalStyle = createGlobalStyle`
     --color-white: #ffffff;
     --color-purple: #a445ed;
     --color-red: #ff5252;
+    
+    --background-color-body: var(--color-white);
+    --background-color-input: var(--color-grey-3);
+    --background-color-dropdown: var(--color-white);
+    --font-color: var(--color-black-3);
+    --input-placeholder-color: var(--color-black-3);
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
 
     // Font sizes
     --font-size-body-s: ${14 / 16}rem;
@@ -170,8 +185,9 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: var(--font-family);
-    color: var(--color-black-3);
+    color: var(--font-color);
     font-size: var(--font-size-body-m);
     line-height: 24px;
+    background-color: var(--background-color-body);
   }
 `;

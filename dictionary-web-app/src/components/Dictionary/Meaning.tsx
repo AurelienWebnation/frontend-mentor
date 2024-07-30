@@ -34,9 +34,9 @@ export function Meaning({ partOfSpeech, definitions, synonyms }: MeaningType) {
             Synonyms
           </Text>
           <div>
-            <Text $color="purple" $size="s" $weight={true}>
+            <Synonym $color="purple" $size="s" $weight={true}>
               {synonyms.join(', ')}
-            </Text>
+            </Synonym>
           </div>
         </Synonyms>
       )}
@@ -73,6 +73,12 @@ const Synonyms = styled.div`
   display: flex;
   gap: 24px;
   margin-top: 24px;
+`;
+
+const Synonym = styled(Text)`
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const List = styled.ul`
