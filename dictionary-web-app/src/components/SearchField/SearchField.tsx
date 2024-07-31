@@ -3,17 +3,17 @@ import { QUERIES } from '../../constants.ts';
 import type { ComponentProps } from 'react';
 
 type SearchFieldProps = ComponentProps<'input'> & {
-  error?: string | false;
+  $error?: string | false;
 };
 
-export function SearchField({ error, ...delegated }: SearchFieldProps) {
+export function SearchField({ $error, ...delegated }: SearchFieldProps) {
   return (
     <Wrapper>
-      <Label error={error}>
+      <Label $error={$error}>
         <Input type="text" {...delegated} />
         <Icon src="/images/icon-search.svg" alt="Search" />
       </Label>
-      {error && <Error>{error}</Error>}
+      {$error && <Error>{$error}</Error>}
     </Wrapper>
   );
 }
@@ -33,7 +33,7 @@ const Label = styled.label<SearchFieldProps>`
     outline: 1px solid var(--color-purple);
   }
 
-  ${({ error }) => error && `outline: 1px solid var(--color-red);`}
+  ${({ $error }) => $error && `outline: 1px solid var(--color-red);`}
 `;
 
 const Input = styled.input`
