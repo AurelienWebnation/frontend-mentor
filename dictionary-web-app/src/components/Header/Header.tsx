@@ -28,6 +28,10 @@ const Wrapper = styled.header`
 const Logo = styled.img`
   margin-right: auto;
   height: 32px;
+
+  @media ${QUERIES.tabletAndUp} {
+    height: 37px;
+  }
 `;
 
 const Separator = styled.div`
