@@ -12,6 +12,7 @@ import { fetcher } from './fetcher.ts';
 export function Dictionary() {
   const [word, setWord] = useState('');
   const [debouncedWord, setDebouncedWord] = useState('');
+  const [inputError, setInputError] = useState('');
 
   const {
     data: results,
@@ -25,6 +26,12 @@ export function Dictionary() {
   );
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    if (!event.target.value) {
+      setInputError('Whoops, can’t be empty…');
+    } else {
+      setInputError('');
+    }
+
     setWord(event.target.value);
   }, []);
 
@@ -42,6 +49,7 @@ export function Dictionary() {
         placeholder="Search for any word..."
         value={word}
         onChange={handleChange}
+        $error={inputError}
       />
 
       {results && results.length > 0 && <Results results={results} />}
