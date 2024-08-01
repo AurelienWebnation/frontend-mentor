@@ -43,4 +43,5 @@ const Wrapper = styled.div`
 const LinkWrapper = styled.div`
   display: flex;
   gap: 8px;
+  width: 100%;
 `;
