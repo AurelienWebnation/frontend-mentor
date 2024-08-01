@@ -177,12 +177,6 @@ export const GlobalStyle = createGlobalStyle`
     ${darkColors}
   }
   
-  @media (prefers-color-scheme: dark) {
-    :root {
-      ${darkColors}
-    }
-  }
-  
   body {
     font-family: var(--font-family);
     color: var(--font-color);
