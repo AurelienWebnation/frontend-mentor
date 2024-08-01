@@ -58,6 +58,7 @@ const Input = styled.input`
 `;
 
 const Icon = styled.img`
+  flex: 15.55px;
   padding-right: 24px;
 `;
 
