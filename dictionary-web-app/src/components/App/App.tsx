@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container } from '../Container';
 import { Header } from '../Header';
 import { Dictionary } from '../Dictionary';
+import { GlobalStyle } from '../GlobalStyle';
 
 export function App() {
   return (
@@ -13,6 +14,7 @@ export function App() {
           <Dictionary />
         </Container>
       </Wrapper>
+      <GlobalStyle />
     </DarkThemeProvider>
   );
 }

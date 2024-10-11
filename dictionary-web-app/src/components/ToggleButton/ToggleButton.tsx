@@ -1,57 +1,73 @@
 import styled from 'styled-components';
-import { type ChangeEvent, useId } from 'react';
+import { IconMoon } from '../../assets/icons/moon/IconMoon.tsx';
 
 interface Props {
-  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  checked: boolean;
+  onClick: () => void;
+  icon?: 'moon';
+  $isActive: boolean;
 }
 
-export function ToggleButton({ handleChange, checked }: Props) {
-  const checkboxId = useId();
+const ICONS = {
+  moon: IconMoon,
+};
+
+export function ToggleButton({ onClick, icon, $isActive = false }: Props) {
+  const Icon = icon ? ICONS[icon] : null;
 
   return (
-    <Label htmlFor={checkboxId}>
-      <Checkbox id={checkboxId} checked={checked} onChange={handleChange} />
-    </Label>
+    <Button onClick={onClick}>
+      <Checkbox $isActive={$isActive} />
+      {Icon && (
+        <IconWrapper $isActive={$isActive}>
+          <Icon width="20" height="20" />
+        </IconWrapper>
+      )}
+    </Button>
   );
 }
 
-const Label = styled.label`
+const Button = styled.label`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`;
+
+const Checkbox = styled('span')<{ $isActive: boolean }>`
   --label-width: 40px;
 
+  display: flex;
   background: var(--color-grey-1);
-  display: inline-block;
   width: var(--label-width);
   height: 20px;
   border-radius: 10px;
   cursor: pointer;
   position: relative;
+  ${(props) => props.$isActive && 'background: var(--color-purple);'}
 
-  &:has(input:checked) {
-    background: var(--color-purple);
+  &::before {
+    --checkbox-width: 14px;
+    --padding: 3px;
+
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: var(--color-white);
+    border-radius: 50%;
+    transform: translateX(3px) translateY(3px);
+    transition: transform 300ms ease-in-out;
+
+    ${(props) =>
+      props.$isActive &&
+      `transform: translateX(
+          calc(var(--label-width) - var(--checkbox-width) - var(--padding))
+        )
+        translateY(var(--padding));`}
   }
-
-  /* Fix checkbox position bug when body font-size change */
-  font-size: 14px;
-  line-height: normal;
 `;
 
-const Checkbox = styled.input.attrs({ type: 'checkbox' })`
-  --checkbox-width: 14px;
-  --padding: 3px;
-
-  appearance: none;
-  width: 14px;
-  height: 14px;
-  background: var(--color-white);
-  border-radius: 50%;
-  transform: translateX(3px) translateY(3px);
-  transition: transform 300ms ease-in-out;
-
-  &:checked {
-    transform: translateX(
-        calc(var(--label-width) - var(--checkbox-width) - var(--padding))
-      )
-      translateY(var(--padding));
+const IconWrapper = styled.div<{ $isActive: boolean }>`
+  & path {
+    ${(props) => props.$isActive && 'stroke: var(--color-purple);'}
   }
 `;

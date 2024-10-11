@@ -1,51 +1,47 @@
 import {
-  type ChangeEvent,
   createContext,
   memo,
   type PropsWithChildren,
   useCallback,
   useEffect,
   useMemo,
+  useState,
 } from 'react';
-import { useBodyDataValue } from '../../hooks/use-body-data-value.hook.ts';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../theme.ts';
 
 interface DarkThemeContext {
-  theme: Theme;
-  handleDarkThemeChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  isDarkTheme: boolean;
+  toggleTheme: () => void;
 }
 
 const defaultContextValue: DarkThemeContext = {
-  theme: 'light',
-  handleDarkThemeChange: () => {},
+  isDarkTheme: false,
+  toggleTheme: () => {},
 };
 
 export const DarkThemeContext =
   createContext<DarkThemeContext>(defaultContextValue);
 
-type Theme = 'light' | 'dark';
-
 const prefersColorSchemeMedia = window.matchMedia(
   '(prefers-color-scheme: dark)'
 );
+
 const isPrefersColorSchemeDark = prefersColorSchemeMedia.matches;
 
 export const DarkThemeProvider = memo(function ({
   children,
 }: PropsWithChildren) {
-  const [theme, setTheme] = useBodyDataValue<Theme>(
-    'theme',
-    isPrefersColorSchemeDark ? 'dark' : 'light'
-  );
+  const [isDarkTheme, setIsDarkTheme] = useState(isPrefersColorSchemeDark);
 
-  const handleDarkThemeChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) =>
-      setTheme(e.target.checked ? 'dark' : 'light'),
+  const toggleTheme = useCallback(
+    () => setIsDarkTheme((prevTheme) => !prevTheme),
     []
   );
 
   useEffect(() => {
     function setDarkThemeFromPrefersColorScheme(e: MediaQueryListEvent) {
-      e.matches ? setTheme('dark') : setTheme('light');
+      e.matches ? setIsDarkTheme(true) : setIsDarkTheme(false);
     }
     prefersColorSchemeMedia.addEventListener(
       'change',
@@ -59,11 +55,14 @@ export const DarkThemeProvider = memo(function ({
       );
   }, []);
 
-  const value = useMemo(() => ({ theme, handleDarkThemeChange }), [theme]);
+  const value = useMemo(
+    () => (isDarkTheme ? theme.colors.dark : theme.colors.light),
+    [isDarkTheme]
+  );
 
   return (
-    <DarkThemeContext.Provider value={value}>
-      {children}
+    <DarkThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
+      <ThemeProvider theme={value}>{children}</ThemeProvider>
     </DarkThemeContext.Provider>
   );
 });

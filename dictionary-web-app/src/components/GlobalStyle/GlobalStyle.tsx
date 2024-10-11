@@ -1,15 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { QUERIES } from '../../constants.ts';
 
-const darkColors = css`
-  --background-color-body: var(--color-black-1);
-  --background-color-input: var(--color-black-2);
-  --background-color-dropdown: var(--color-black-2);
-  --font-color: var(--color-white);
-  --input-placeholder-color: var(--color-white);
-  --box-shadow-color: var(--color-purple);
-`;
-
 const selectedTypo = css`
   [data-typo='sansSerif'] {
     --font-family: var(--font-family-sans-serif);
@@ -143,12 +134,12 @@ export const GlobalStyle = createGlobalStyle`
     --color-purple: #a445ed;
     --color-red: #ff5252;
     
-    --background-color-body: var(--color-white);
-    --background-color-input: var(--color-grey-3);
-    --background-color-dropdown: var(--color-white);
-    --font-color: var(--color-black-3);
-    --input-placeholder-color: var(--color-black-3);
-    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --background-color-body: ${(props) => props.theme.backgroundBody};
+    --background-color-input: ${(props) => props.theme.backgroundInput};
+    --background-color-dropdown: ${(props) => props.theme.backgroundDropdown};
+    --font-color: ${(props) => props.theme.font};
+    --input-placeholder-color: ${(props) => props.theme.inputPlaceholder};
+    --box-shadow-color: ${(props) => props.theme.boxShadow};
 
     // Font sizes
     --font-size-body-s: ${14 / 16}rem;
@@ -171,10 +162,6 @@ export const GlobalStyle = createGlobalStyle`
     --font-family-serif: 'Lora', serif;
     --font-family-mono: 'Incosolata', monospace;
     ${selectedTypo};
-  }
-
-  [data-theme='dark'] {
-    ${darkColors}
   }
   
   body {

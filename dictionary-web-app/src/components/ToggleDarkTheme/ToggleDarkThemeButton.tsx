@@ -1,28 +1,19 @@
 import { ToggleButton } from '../ToggleButton';
 import styled from 'styled-components';
-import MoonIconSVG from './assets/icon-moon.svg';
+
 import { useContext } from 'react';
 import { DarkThemeContext } from '../DarkThemeProvider';
 import { QUERIES } from '../../constants.ts';
 
 export function ToggleDarkTheme() {
-  const { theme, handleDarkThemeChange } = useContext(DarkThemeContext);
+  const { isDarkTheme, toggleTheme } = useContext(DarkThemeContext);
 
   return (
     <Wrapper>
-      <ToggleButton
-        handleChange={handleDarkThemeChange}
-        checked={theme === 'dark'}
-      />
-      <MoonIcon />
+      <ToggleButton onClick={toggleTheme} $isActive={isDarkTheme} icon="moon" />
     </Wrapper>
   );
 }
-
-const MoonIcon = styled(MoonIconSVG)`
-  width: 20px;
-  height: 20px;
-`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,7 +25,7 @@ const Wrapper = styled.div`
   }
 
   &:has(input:checked) {
-    ${MoonIcon} {
+    .test {
       & > path {
         stroke: var(--color-purple);
       }
